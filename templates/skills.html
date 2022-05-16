@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск по умению</title>
+</head>
+<body>
+<center>
+    {% if skill %}
+        <h1>Кандидатов с умением {{ skill }} найдено:
+            <mark>{{ total_candidates }}</mark></h1>
+        {% for id, name in candidates.items() %}
+            <p><a href="/candidate/{{ id }}">{{ name }}</a></p>
+        {% endfor %}
+    {% else %}
+    <h1>Вы не ввели умение кандидата</h1>
+    {% endif %}
+</center>
+</body>
+</html>

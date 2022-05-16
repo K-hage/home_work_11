@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Кандидаты</title>
+</head>
+<body>
+<center>
+    <h1>Все кандидаты</h1>
+    {% for id, name in candidates.items() %}
+        <p><a href="/candidate/{{ id }}">{{ name }}</a></p>
+    {% endfor %}
+    <p><a href="/search/">страница поиска по имени</a></p>
+    <p><a href="/skills/">страница поиска по умению</a></p>
+    </form>
+</center>
+</body>
+</html>
