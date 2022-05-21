@@ -14,7 +14,7 @@ def main_page():
                            )
 
 
-@app.route("/candidate/<int:pk>")
+@app.route("/candidate/<int:pk>/")
 def candidate_card(pk):
     candidates_list = get_candidate(pk)
 
@@ -27,8 +27,11 @@ def candidate_card(pk):
 
 
 @app.route("/search/")
-@app.route("/search/<candidate_name>")
+@app.route("/search/<candidate_name>/")
 def candidate_search(candidate_name=""):
+    if request.method == "GET" and request.args.get("name"):
+        candidate_name = request.args.get("name")
+
     candidates_list = get_candidates_by_name(candidate_name)
 
     candidates = {x["id"]: x["name"] for x in candidates_list}
@@ -40,8 +43,11 @@ def candidate_search(candidate_name=""):
 
 
 @app.route("/skills/")
-@app.route("/skills/<skill>")
+@app.route("/skills/<skill>/")
 def candidates_skill(skill=""):
+    if request.method == "GET" and request.args.get("skills"):
+        skill = request.args.get("skills")
+
     candidates_list = get_candidates_by_skill(skill)
 
     candidates = {x["id"]: x["name"] for x in candidates_list}

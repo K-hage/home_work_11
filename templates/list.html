@@ -2,7 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Кандидаты</title>
+    <style>
+        .name_search {width: 300px;
+            height: 25px;
+            border: 10px solid red;
+            padding: 10px;
+            position: absolute;
+            top: 5%;
+            left: 5%;
+   }
+        .skill_search {width: 300px;
+            height: 25px;
+            border: 10px solid green;
+            padding: 10px;
+            position: absolute;
+            top: 5%;
+            left: 80%;
+   }
+    </style>
 </head>
 <body>
 <center>
@@ -12,6 +33,13 @@
     {% endfor %}
     <p><a href="/search/">страница поиска по имени</a></p>
     <p><a href="/skills/">страница поиска по умению</a></p>
+    <form class="name_search" action='/search/' method='get'>
+        <input name="name" type="text" placeholder="Поиск по имени">
+        <input type="submit" value="Поиск">
+    </form>
+    <form class="skill_search" action='/skills/' method='get'>
+        <input name="skills" type="text" placeholder="Поиск по умению">
+        <input type="submit" value="Поиск">
     </form>
 </center>
 </body>

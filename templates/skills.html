@@ -2,19 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Поиск по умению</title>
+    <style>
+        .skill_search {width: 300px;
+            height: 25px;
+            border: 10px solid green;
+            padding: 10px;
+            position: center;
+            top: 5%;
+        }
+    </style>
 </head>
 <body>
 <center>
+    <form class="skill_search" action='/skills/' method='get'>
+        <input name="skills" type="text" placeholder="Поиск по умению">
+        <input type="submit" value="Поиск">
+    </form>
     {% if skill %}
         <h1>Кандидатов с умением {{ skill }} найдено:
             <mark>{{ total_candidates }}</mark></h1>
         {% for id, name in candidates.items() %}
             <p><a href="/candidate/{{ id }}">{{ name }}</a></p>
         {% endfor %}
-    {% else %}
-    <h1>Вы не ввели умение кандидата</h1>
     {% endif %}
+    <a href="/">На главную</a>
 </center>
 </body>
 </html>
